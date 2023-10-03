@@ -4,20 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDuracionsTable extends Migration
+class CreateTipoContratosTable extends Migration
 {
     public function up()
     {
-        Schema::create('duraciones', function (Blueprint $table) {
-            $table->increments('idduracion');
+        Schema::create('tipocontratos', function (Blueprint $table) {
+            $table->increments('idtipocontrato');
             $table->string('descripcion', 50);
-            $table->integer('meses');
+            $table->string('duracion', 50);
+            $table->integer('valorduracion');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('duraciones');
+        Schema::dropIfExists('tipocontratos');
     }
 }

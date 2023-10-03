@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
+
 class CreateRegistroEventosTable extends Migration
 {
     public function up()
@@ -13,10 +13,10 @@ class CreateRegistroEventosTable extends Migration
             $table->unsignedInteger('idcontrato');
             $table->string('evento', 100);
             $table->text('descripcion');
-            $table->timestamp('fecha')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('fecha')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
 
-            $table->foreign('idcontrato')->references('idcontrato')->on('contratos');
+            $table->foreign('idcontrato')->references('idcontrato')->on('contratos')->onDelete('cascade');
         });
     }
 
@@ -25,3 +25,4 @@ class CreateRegistroEventosTable extends Migration
         Schema::dropIfExists('registroeventos');
     }
 }
+

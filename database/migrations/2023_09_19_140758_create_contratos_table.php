@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,7 +12,7 @@ class CreateContratosTable extends Migration
             $table->string('descripcion', 100);
             $table->string('alias', 50);
             $table->unsignedInteger('idtipocontrato');
-            $table->unsignedInteger('idfiscal');
+            $table->unsignedInteger('idadministrador');
             $table->date('fechafirma');
             $table->unsignedInteger('idcontratista');
             $table->integer('anho');
@@ -25,7 +24,7 @@ class CreateContratosTable extends Migration
             $table->timestamps();
 
             $table->foreign('idtipocontrato')->references('idtipocontrato')->on('tipocontratos');
-            $table->foreign('idfiscal')->references('idfiscal')->on('fiscales');
+            $table->foreign('idadministrador')->references('idadministrador')->on('administradores');
             $table->foreign('idcontratista')->references('idcontratista')->on('contratistas');
         });
     }

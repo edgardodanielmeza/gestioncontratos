@@ -10,7 +10,7 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->increments('iditem');
-            $table->string('nombre_item', 100);
+            $table->string('descripcionitem', 100);
             $table->timestamps();
         });
     }
